@@ -5,6 +5,8 @@ import * as yup from 'yup';
 
 import { Button, ControlledFieldText } from '../../../../components';
 
+import { useFocusInputOnMount } from '../../../../hooks/useFocusInputOnMount';
+
 import { TLoginForm } from './types';
 
 const loginFormSchema = yup.object().shape({
@@ -13,6 +15,8 @@ const loginFormSchema = yup.object().shape({
 });
 
 export const LoginForm = memo(() => {
+    const refForFirstInput = useFocusInputOnMount();
+
     const { control, handleSubmit, errors } = useForm<TLoginForm>({
         resolver: yupResolver(loginFormSchema),
     });
@@ -27,6 +31,7 @@ export const LoginForm = memo(() => {
                 name='login'
                 defaultValue=''
                 required
+                forwardedRef={refForFirstInput}
                 control={control}
                 error={errors?.login}
             />

@@ -20,6 +20,7 @@ export const FieldText = (
         label,
         value,
         required,
+        forwardedRef,
         ...restProps
     }: TFieldTextProps) => (
     <div className={classNames(classNameForFieldWrapper, 'field-wrapper')}>
@@ -39,11 +40,12 @@ export const FieldText = (
                 }
                 id={id}
                 value={value}
+                ref={forwardedRef}
                 {...restProps}
             />
             <label htmlFor={id} className={classNames(classNameForLabel, 'field-label')}>
                 {label}
-                {required && <span>*</span>}
+                {required && '*'}
             </label>
         </div>
 

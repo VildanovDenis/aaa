@@ -21,7 +21,9 @@ $darkenRed: darken($red, 30%);
 
 $white: white;
 $black: #333333;
-$lightenBlack: lighten($black, 70%);
+$lightenBlack: lighten($black, 35%);
+$lightenLightenBlack: lighten($black, 70%);
+$lightgray: #EFEFEF;
 
 // border radius
 $borderRadiusMedium: 5px;

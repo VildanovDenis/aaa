@@ -11,6 +11,8 @@ export type TProps = {
     value?: string | number;
     type?: 'text' | 'password';
     required?: boolean;
+    disabled?: boolean;
+    forwardedRef?: React.RefObject<HTMLInputElement>;
     classNameForFieldWrapper?: string;
     classNameForField?: string;
     classNameForInput?: string;

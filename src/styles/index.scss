@@ -80,6 +80,7 @@ a {
   border: 0;
   font-size: $fontSizeDefault;
   line-height: $lineHeightDefault;
+  color: $black;
   border-radius: $borderRadiusMedium;
   background-color: $lightenLightenPrimaryColor;
   transition: all 0.3s ease;
@@ -96,6 +97,15 @@ a {
     transform: translateY(calc(-50% - 12px));
     font-size: $fontSizeSmall;
     line-height: $lineHeightSmall;
+  }
+
+  &:disabled {
+    color: $lightenBlack;
+    background-color: $lightgray;
+  }
+
+  &:disabled + .field-label {
+    color: $lightenBlack;
   }
 }
 
