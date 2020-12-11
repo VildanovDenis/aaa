@@ -14,6 +14,9 @@ const loginFormSchema = yup.object().shape({
     password: yup.string().min(6, 'Минимальное количество символов - 6').required('Обязательное поле'),
 });
 
+/**
+ * Form for login page
+ */
 export const LoginForm = memo(() => {
     const refForInputToFocus = useFocusInputOnMount();
 

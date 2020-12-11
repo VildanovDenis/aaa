@@ -4,9 +4,9 @@ import { Controller } from 'react-hook-form';
 
 import { TControlledTextProps, TFieldTextProps } from './types';
 
-// TODO Required prop + styles;
 /**
  * Input text with label and error inside.
+ * Can be used without form
  */
 export const FieldText = (
     {
@@ -54,6 +54,10 @@ export const FieldText = (
     </div>
 );
 
+/**
+ * Wrapped FieldText component into react-hook-form Controller component.
+ * Should be used with react-hook-form.
+ */
 export const ControlledFieldText = (
     { control, name, defaultValue = '', error, ...rest }: TControlledTextProps
 ) => (

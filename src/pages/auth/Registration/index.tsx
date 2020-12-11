@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { LayoutWithShadow } from '../../../components';
 import { RegistrationForm } from './RegistrationForm';
 
+/**
+ * Registration page
+ */
 export const Registration = () => {
 
     return (

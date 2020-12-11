@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { LoginForm } from './LoginForm';
 import { LayoutWithShadow } from '../../../components';
 
+/**
+ * Login page
+ */
 export const Login = () => {
 
     return (

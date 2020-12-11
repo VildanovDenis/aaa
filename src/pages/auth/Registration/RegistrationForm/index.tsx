@@ -1,12 +1,12 @@
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { ControlledFieldText } from '../../../../components/FieldText';
+import { Button } from '../../../../components/Button';
 
 import { TRegistrationForm } from './types';
-import { Button } from '../../../../components/Button';
-import { yupResolver } from '@hookform/resolvers/yup';
 
 const schemeRegistrationForm = yup.object().shape({
     name: yup.string().required('Обязательное поле'),
@@ -25,6 +25,9 @@ const schemeRegistrationForm = yup.object().shape({
         .required('Обязательное поле')
 })
 
+/**
+ * Form for registration page
+ */
 export const RegistrationForm = () => {
     const { control, handleSubmit, errors } = useForm<TRegistrationForm>({
         resolver: yupResolver(schemeRegistrationForm)
