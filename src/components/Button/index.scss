@@ -21,4 +21,8 @@
   &:hover {
     background-color: $primaryColor;
   }
+
+  &:disabled {
+    background-color: $darkenPrimaryColor;
+  }
 }

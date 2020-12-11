@@ -14,7 +14,7 @@ const loginFormSchema = yup.object().shape({
 
 export const LoginForm = memo(() => {
     const { control, handleSubmit, errors } = useForm<TLoginForm>({
-        resolver: yupResolver(loginFormSchema)
+        resolver: yupResolver(loginFormSchema),
     });
 
     const onSubmit = useCallback((data: TLoginForm) => console.log(data), []);
@@ -42,8 +42,8 @@ export const LoginForm = memo(() => {
             />
             <Button
                 type='submit'
-                onClick={handleSubmit(onSubmit)}
                 className='w100 login-form__button'
+                onClick={handleSubmit(onSubmit)}
             >
                 Войти
             </Button>
