@@ -1,0 +1,145 @@
+@import "./src/styles/variables";
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  color: $black;
+}
+
+body, #root {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, h7, p {
+  margin-top: 0;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+  font-size: $fontSizeLarge;
+  line-height: $lineHeightLarge;
+}
+
+p {
+  font-size: $fontSizeDefault;
+  line-height: $lineHeightDefault;
+}
+
+a {
+  font-size: $fontSizeDefault;
+  line-height: $lineHeightDefault;
+  color: $primaryColor;
+  text-decoration: none;
+
+  &:focus {
+    color: $darkenPrimaryColor;
+  }
+
+  &:hover {
+    color: $lightenPrimaryColor;
+  }
+}
+
+.padding-small {
+  padding: $paddingSmall
+}
+
+.padding-medium {
+  padding: $paddingMedium
+}
+
+.padding-large {
+  padding: $paddingLarge;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.field-wrapper {
+  margin-bottom: $marginMedium;
+}
+
+.field {
+  position: relative;
+}
+
+.field-input {
+  width: 100%;
+  height: calc(#{$lineHeightDefault} + #{$paddingMedium} + #{$paddingSmall});
+  padding: $paddingMedium $paddingMediumSmall $paddingSmall;
+  border: 0;
+  font-size: $fontSizeDefault;
+  line-height: $lineHeightDefault;
+  border-radius: $borderRadiusMedium;
+  background-color: $lightenLightenPrimaryColor;
+  transition: all 0.3s ease;
+
+  &:focus {
+    background-color: $lightenPrimaryColor;
+  }
+
+  &:hover {
+    background-color: $primaryColor;
+  }
+
+  &:focus + .field-label {
+    transform: translateY(calc(-50% - 12px));
+    font-size: $fontSizeSmall;
+    line-height: $lineHeightSmall;
+  }
+}
+
+.field-input-with-value + .field-label {
+  transform: translateY(calc(-50% - 12px));
+  font-size: $fontSizeSmall;
+  line-height: $lineHeightSmall;
+}
+
+.field-input-invalid {
+  background-color: $lightenLightenRed;
+
+  &:focus {
+    background-color: $lightenRed;
+  }
+
+  &:hover {
+    background-color: $red;
+  }
+}
+
+.field-label {
+  position: absolute;
+  left: $paddingMediumSmall;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: $fontSizeDefault;
+  line-height: $lineHeightDefault;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.field-error {
+  margin-top: $marginMedium;
+  font-size: $fontSizeDefault;
+  line-height: $lineHeightDefault;
+  text-align: left;
+  color: $darkenRed;
+}
+
+// components styles
+@import "./src/components/Button/index";
+@import "./src/components/LayoutWithShadow/index";
+@import "./src/components/FieldText/index";
+
+// pages styles
+@import "./src/pages/auth/index";

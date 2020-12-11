@@ -1,0 +1,15 @@
+.auth-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.auth-content {
+  width: 400px;
+}
+
+@import "./src/pages/auth/Login/LoginForm/index";
+@import "./src/pages/auth/Registration/RegistrationForm/index";

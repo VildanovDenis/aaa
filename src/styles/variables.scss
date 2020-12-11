@@ -1,0 +1,41 @@
+// font-size
+$fontSizeDefault: 16px;
+$fontSizeLarge: 24px;
+$fontSizeSmall: 12px;
+
+// line-height
+$lineHeightDefault: 20px;
+$lineHeightLarge: 24px;
+$lineHeightSmall: 14px;
+
+// colors
+$primaryColor: skyblue;
+$lightenPrimaryColor: lighten($primaryColor, 10%);
+$lightenLightenPrimaryColor: lighten($primaryColor, 20%);
+$darkenPrimaryColor: darken($primaryColor, 20%);
+
+$red: salmon;
+$lightenRed: lighten($red, 10%);
+$lightenLightenRed: lighten($red, 20%);
+$darkenRed: darken($red, 30%);
+
+$white: white;
+$black: #333333;
+$lightenBlack: lighten($black, 70%);
+
+// border radius
+$borderRadiusMedium: 5px;
+$borderRadiusLarge: 10px;
+$borderRadiusSmall: 3px;
+
+// padding
+$paddingExtraSmall: 5px;
+$paddingSmall: 10px;
+$paddingMediumSmall: 15px;
+$paddingMedium: 25px;
+$paddingLarge: 50px;
+
+// margin
+$marginSmall: 5px;
+$marginMedium: 10px;
+$marginLarge: 20px;

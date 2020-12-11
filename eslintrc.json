@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "quotes": ["error", "single"],
+    "no-debugger": "error",
+    "no-dupe-else-if": "error",
+    "curly": ["error", "all"],
+    "eqeqeq": ["error", "always"],
+    "no-else-return": "error",
+    "max-lines": ["error", 350],
+    "no-trailing-spaces": ["error", { "ignoreComments": true }],
+    "no-duplicate-imports": "error",
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "newline-after-var": "error",
+    "object-curly-spacing": ["error", "always"],
+    "jsx-quotes": ["warn", "prefer-single"],
+    "max-len": [
+      "error",
+      120
+    ]
+  }
+}
