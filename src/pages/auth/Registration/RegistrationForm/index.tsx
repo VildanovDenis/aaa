@@ -6,6 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { ControlledFieldText } from '../../../../components/FieldText';
 import { Button } from '../../../../components/Button';
 
+import { useFocusInputOnMount } from '../../../../hooks/useFocusInputOnMount';
+
 import { TRegistrationForm } from './types';
 
 const schemeRegistrationForm = yup.object().shape({
@@ -29,6 +31,7 @@ const schemeRegistrationForm = yup.object().shape({
  * Form for registration page
  */
 export const RegistrationForm = () => {
+    const refForInputToFocus = useFocusInputOnMount();
     const { control, handleSubmit, errors } = useForm<TRegistrationForm>({
         resolver: yupResolver(schemeRegistrationForm)
     });
@@ -42,6 +45,7 @@ export const RegistrationForm = () => {
                 name='email'
                 id='email'
                 required
+                forwardedRef={refForInputToFocus}
                 control={control}
                 error={errors?.email}
             />
