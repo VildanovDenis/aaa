@@ -15,7 +15,7 @@ const loginFormSchema = yup.object().shape({
 });
 
 export const LoginForm = memo(() => {
-    const refForFirstInput = useFocusInputOnMount();
+    const refForInputToFocus = useFocusInputOnMount();
 
     const { control, handleSubmit, errors } = useForm<TLoginForm>({
         resolver: yupResolver(loginFormSchema),
@@ -31,7 +31,7 @@ export const LoginForm = memo(() => {
                 name='login'
                 defaultValue=''
                 required
-                forwardedRef={refForFirstInput}
+                forwardedRef={refForInputToFocus}
                 control={control}
                 error={errors?.login}
             />
