@@ -1,0 +1,91 @@
+.chat-message-wrapper {
+  padding: $paddingSmall 0;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: lighten($primaryColor, 25%);
+  }
+}
+
+// incoming
+.chat-message {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  min-width: 150px;
+  max-width: 60%;
+  margin-right: auto;
+  //padding: $paddingSmall;
+  //margin-bottom: $marginMedium;
+}
+
+.chat-message__avatar-wrapper {
+  margin-bottom: $marginSmall;
+}
+
+.chat-message__avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.chat-message__message {
+  padding-left: $paddingSmall;
+}
+
+.chat-message__message-bubble {
+  padding: $paddingSmall;
+  margin-bottom: $marginSmall;
+  border-radius: $borderRadiusLarge $borderRadiusLarge $borderRadiusLarge 0;
+  background-color: $lightenPrimaryColor;
+}
+
+.chat-message__message-text {
+  margin: 0;
+  text-align: left;
+}
+
+.chat-message__date {
+  margin: 0;
+  text-align: left;
+  font-size: $fontSizeSmall;
+  line-height: $lineHeightSmall;
+  color: $lightenBlack;
+}
+
+// outcoming
+.chat-message--by-me {
+  flex-direction: row-reverse;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.chat-message__message--by-me {
+  padding-left: 0;
+  padding-right: $paddingSmall;
+}
+
+.chat-message__message-bubble--by-me {
+  border-radius: $borderRadiusLarge $borderRadiusLarge 0 $borderRadiusLarge;
+  background-color: $lightenLightenPrimaryColor;
+}
+
+.chat-message__date--by-me {
+  text-align: right;
+}
+
+.chat-message__icon {
+  padding: $paddingExtraSmall;
+  // line-height of the date + margin-bottom of bubble + padding of the bubble
+  margin-bottom: calc(#{$marginSmall} + #{$lineHeightSmall} + #{$paddingSmall});
+  margin-right: $marginMedium;
+  border-radius: 50%;
+  background-color: $lightenLightenBlack;
+  //background-color: $lightenLightenPrimaryColor;
+  //background-color: $primaryColor;
+
+  &--is-read {
+    background-color: transparent;
+  }
+}

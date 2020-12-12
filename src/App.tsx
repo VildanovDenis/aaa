@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import { Auth } from './pages/Auth';
-import { Home } from './pages/app/Home';
+import { Home } from './pages/App/Home';
 
 export const App = () => (
     <>
