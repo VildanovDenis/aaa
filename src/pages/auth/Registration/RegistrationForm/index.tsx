@@ -1,42 +1,28 @@
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { ControlledFieldText } from '../../../../components/FieldText';
 import { Button } from '../../../../components/Button';
 
 import { useFocusInputOnMount } from '../../../../hooks/useFocusInputOnMount';
+import { registrationFormScheme } from './validationScheme';
 
-import { TRegistrationForm } from './types';
-
-const schemeRegistrationForm = yup.object().shape({
-    name: yup.string().required('Обязательное поле'),
-    surname: yup.string(),
-    email: yup
-        .string()
-        .email('Введите email. Например example@gmail.com.')
-        .required('Обязательное поле'),
-    password: yup
-        .string()
-        .min(6, 'Минимальное количество символов - 6')
-        .required('Обязательное поле'),
-    rePassword: yup
-        .string()
-        .oneOf([yup.ref('password'), null], 'Пароли должны совпадать')
-        .required('Обязательное поле')
-})
+import { TRegistrationForm, TRegistrationFormProps } from './types';
 
 /**
  * Form for registration page
  */
-export const RegistrationForm = () => {
+export const RegistrationForm = ({ setIsRequestSent }: TRegistrationFormProps) => {
     const refForInputToFocus = useFocusInputOnMount();
     const { control, handleSubmit, errors } = useForm<TRegistrationForm>({
-        resolver: yupResolver(schemeRegistrationForm)
+        resolver: yupResolver(registrationFormScheme)
     });
 
-    const onSubmit = useCallback((data: any) => console.log(data), []);
+    const onSubmit = useCallback(async (data: TRegistrationForm) => {
+        setIsRequestSent(true);
+        console.log(data);
+    }, []);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

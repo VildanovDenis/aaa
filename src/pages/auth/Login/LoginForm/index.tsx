@@ -1,18 +1,13 @@
 import React, { memo, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 
 import { Button, ControlledFieldText } from '../../../../components';
 
 import { useFocusInputOnMount } from '../../../../hooks/useFocusInputOnMount';
+import { loginFormScheme } from './validationScheme';
 
 import { TLoginForm } from './types';
-
-const loginFormSchema = yup.object().shape({
-    login: yup.string().min(6, 'Минимальное количество символов - 6').required('Обязательно поле'),
-    password: yup.string().min(6, 'Минимальное количество символов - 6').required('Обязательное поле'),
-});
 
 /**
  * Form for login page
@@ -21,7 +16,7 @@ export const LoginForm = memo(() => {
     const refForInputToFocus = useFocusInputOnMount();
 
     const { control, handleSubmit, errors } = useForm<TLoginForm>({
-        resolver: yupResolver(loginFormSchema),
+        resolver: yupResolver(loginFormScheme),
     });
 
     const onSubmit = useCallback((data: TLoginForm) => console.log(data), []);
