@@ -20,9 +20,9 @@ export const RegistrationForm = ({ setIsRequestSent }: TRegistrationFormProps) =
     });
 
     const onSubmit = useCallback(async (data: TRegistrationForm) => {
-        setIsRequestSent(true);
+        setTimeout(() => setIsRequestSent(true), 5000);
         console.log(data);
-    }, []);
+    }, [setIsRequestSent]);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

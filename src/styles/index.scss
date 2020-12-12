@@ -31,10 +31,12 @@ p {
 }
 
 a {
+  display: block;
   font-size: $fontSizeDefault;
   line-height: $lineHeightDefault;
-  color: $primaryColor;
+  text-align: center;
   text-decoration: none;
+  color: $primaryColor;
 
   &:focus {
     color: $darkenPrimaryColor;
