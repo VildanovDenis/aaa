@@ -1,0 +1,104 @@
+.dialog-user__wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: $paddingExtraSmall;
+}
+
+.dialog-user__avatar-wrapper {
+  position: relative;
+  flex-grow: 0;
+  width: 48px;
+  height: 48px;
+  margin-right: $marginMedium;
+  overflow: hidden;
+}
+
+.dialog-user__avatar-wrapper--online::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  border: 2px solid $white;
+  background-color: $lightenGreen;
+  border-radius: 50%;
+}
+
+.dialog-user__avatar-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.dialog-user__avatar-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: lighten(midnightblue, 30%);
+
+  & > span {
+    font-size: $fontSizeLarge;
+    line-height: $fontSizeLarge;
+    color: $white;
+  }
+}
+
+.dialog-user__avatar-text--0 {
+  background-color: lightpink;
+}
+
+.dialog-user__avatar-text--1 {
+  background-color: lightseagreen;
+}
+
+.dialog-user__avatar-text--2 {
+  background-color: darkslateblue;
+}
+
+.dialog-user__avatar-text--3 {
+  background-color: lightgreen;
+}
+
+.dialog-user__avatar-text--4 {
+  background-color: lightsalmon;
+}
+
+.dialog-user__info {
+  flex-grow: 1;
+  // Avatar width + avatar margin
+  max-width: calc(100% - #{$marginMedium} - 48px)
+}
+
+.dialog-user__info--name-and-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: $marginSmall;
+}
+
+.dialog-user__info--name {
+  margin-bottom: 0;
+  font-size: $fontSizeDefault;
+  line-height: $lineHeightDefault;
+}
+
+.dialog-user__info--date {
+  font-size: $fontSizeSmall;
+  line-height: $lineHeightSmall;
+}
+
+.dialog-user__info--last-message {
+  display: block;
+  color: $lightenBlack;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

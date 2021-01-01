@@ -16,12 +16,19 @@ import { TRegistrationForm, TRegistrationFormProps } from './types';
 export const RegistrationForm = ({ setIsRequestSent }: TRegistrationFormProps) => {
     const refForInputToFocus = useFocusInputOnMount();
     const { control, handleSubmit, errors } = useForm<TRegistrationForm>({
-        resolver: yupResolver(registrationFormScheme)
+        resolver: yupResolver(registrationFormScheme),
+        defaultValues: {
+            email: '',
+            name: '',
+            surname: '',
+            password: '',
+            rePassword: '',
+        },
     });
 
     const onSubmit = useCallback(async (data: TRegistrationForm) => {
         setTimeout(() => setIsRequestSent(true), 5000);
-        console.log(data);
+        alert(JSON.stringify(data, null, 4));
     }, [setIsRequestSent]);
 
     return (

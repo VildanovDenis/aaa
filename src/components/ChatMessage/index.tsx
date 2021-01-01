@@ -1,15 +1,15 @@
 import React, { memo, useMemo } from 'react';
 import classNames from 'classnames';
-import { differenceInHours, format, formatDistanceToNow } from 'date-fns';
-import { ru } from 'date-fns/locale'
 
-import { TChatMessageProps } from './types';
+import { convertMessageDateToSting } from "./convertMessageDateToSting";
 
-const hoursInDay = 24;
-const dateFormatDDMMYYYYDDMM = 'd.MM.yyyy HH:mm';
+import { messageStatuses, TChatMessageProps } from './types';
 
 export const ChatMessage = memo((props: TChatMessageProps) => {
-    const diffInDates = useMemo(() => differenceInHours(new Date(), props.date), [props.date]);
+    const dateOfMessage = useMemo(
+        () => props?.date ? convertMessageDateToSting(props.date) : null,
+        [props.date]
+    );
 
     return (
         <section className='chat-message-wrapper'>
@@ -43,39 +43,61 @@ export const ChatMessage = memo((props: TChatMessageProps) => {
                         )
                     }
                 >
-                    <div
-                        className={
-                            classNames(
-                                'chat-message__message-bubble',
-                                {
-                                    'chat-message__message-bubble--by-me': props.userId === props.senderId
-                                }
+                    {(props.isTyping || props.message) && (
+                        <div
+                            className={
+                                classNames(
+                                    'chat-message__message-bubble',
+                                    {
+                                        'chat-message__message-bubble--by-me': props.userId === props.senderId
+                                    }
+                                )
+                            }
+                        >
+                            {props.message && (
+                                <p className='chat-message__message-text'>
+                                    {props.message}
+                                </p>
+                            )}
+                            {props.isTyping && (
+                                <div className='chat-message__typing-bubbles'>
+                                    <span />
+                                    <span />
+                                    <span />
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    <div className={classNames('chat-message__attachments')}>
+                        {props?.attachment?.map((attach, index) => {
+                            const { url } = attach;
+
+                            return (
+                                <div
+                                    key={index}
+                                    className={
+                                        `chat-message__attach ${props?.attachment?.length === 1 ? 'chat-message__attach--one' : ''}`
+                                    }
+                                >
+                                    <img src={url} alt={attach.name} />
+                                </div>
                             )
-                        }
-                    >
-                        <p className='chat-message__message-text'>
-                            {props.message}
-                        </p>
+                        })}
                     </div>
-                    <p
-                        className={
-                            classNames(
+
+                    {dateOfMessage && (
+                        <p
+                            className={classNames(
                                 'chat-message__date',
                                 {
                                     'chat-message__date--by-me': props.userId === props.senderId
                                 }
-                            )
-                        }
-                    >
-                        {
-                            diffInDates < hoursInDay
-                                ? (
-                                    formatDistanceToNow(props.date, { locale: ru, addSuffix: true })
-                                ) : (
-                                    format(props.date, dateFormatDDMMYYYYDDMM, { locale: ru })
-                                )
-                        }
-                    </p>
+                            )}
+                        >
+                            {dateOfMessage}
+                        </p>
+                    )}
                 </div>
 
                 {/* isRead */}
@@ -85,7 +107,9 @@ export const ChatMessage = memo((props: TChatMessageProps) => {
                             classNames(
                                 'chat-message__icon',
                                 {
-                                    'chat-message__icon--is-read': props.isRead,
+                                    'chat-message__icon--delivered': props.status === messageStatuses.delivered,
+                                    'chat-message__icon--seen': props.status === messageStatuses.seen,
+                                    'chat-message__icon--errored': props.status === messageStatuses.errored,
                                 }
                             )
                         }

@@ -17,6 +17,10 @@ export const LoginForm = memo(() => {
 
     const { control, handleSubmit, errors } = useForm<TLoginForm>({
         resolver: yupResolver(loginFormScheme),
+        defaultValues: {
+            login: '',
+            password: '',
+        }
     });
 
     const onSubmit = useCallback((data: TLoginForm) => console.log(data), []);

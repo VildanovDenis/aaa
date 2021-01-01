@@ -13,7 +13,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-end;
-  min-width: 150px;
+  //min-width: 150px;
   max-width: 60%;
   margin-right: auto;
   //padding: $paddingSmall;
@@ -31,6 +31,10 @@
 }
 
 .chat-message__message {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  //min-width: 100px;
   padding-left: $paddingSmall;
 }
 
@@ -49,7 +53,7 @@
 .chat-message__date {
   margin: 0;
   text-align: left;
-  font-size: $fontSizeSmall;
+  font-size: $fontSizeExtraSmall;
   line-height: $lineHeightSmall;
   color: $lightenBlack;
 }
@@ -75,6 +79,7 @@
   text-align: right;
 }
 
+// other
 .chat-message__icon {
   padding: $paddingExtraSmall;
   // line-height of the date + margin-bottom of bubble + padding of the bubble
@@ -85,7 +90,93 @@
   //background-color: $lightenLightenPrimaryColor;
   //background-color: $primaryColor;
 
-  &--is-read {
+  &--delivered {
+    background-color: $primaryColor;
+  }
+
+  &--seen {
     background-color: transparent;
+  }
+
+  &--errored {
+    background-color: $lightenRed;
+  }
+}
+
+.chat-message__attachments {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.chat-message__attach {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  border-radius: $borderRadiusMedium;
+  overflow: hidden;
+
+  & > img {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.chat-message__attach--one {
+  width: 400px;
+  height: auto;
+}
+
+// Bubbles to show if user user typing
+@keyframes typingBubble {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.chat-message__typing-bubbles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: calc(#{$fontSizeSmall} + #{$fontSizeSmall} + #{$fontSizeSmall} + #{$paddingExtraSmall} + #{$paddingExtraSmall});
+  height: $fontSizeSmall;
+  margin: 0 auto;
+
+  & > span {
+    width: $fontSizeSmall;
+    height: $fontSizeSmall;
+    border-radius: 50%;
+    background-color: $darkenPrimaryColor;
+    animation: typingBubble 1.2s ease-in-out infinite;
+  }
+
+  & span:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  & span:nth-child(2) {
+    animation-delay: 0.3s;
+    //animation: none;
+  }
+
+  & span:nth-child(3) {
+    //animation: none;
+    animation-delay: 0.6s;
   }
 }

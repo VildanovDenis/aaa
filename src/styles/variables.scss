@@ -2,6 +2,7 @@
 $fontSizeDefault: 16px;
 $fontSizeLarge: 24px;
 $fontSizeSmall: 12px;
+$fontSizeExtraSmall: 8px;
 
 // line-height
 $lineHeightDefault: 20px;
@@ -24,6 +25,7 @@ $black: #333333;
 $lightenBlack: lighten($black, 35%);
 $lightenLightenBlack: lighten($black, 70%);
 $lightgray: #EFEFEF;
+$lightenGreen: lighten(green, 50%);
 
 // border radius
 $borderRadiusMedium: 5px;

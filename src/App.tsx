@@ -7,7 +7,7 @@ import { Home } from './pages/App/Home';
 export const App = () => (
     <>
         <Switch>
-            <Route exact path={['/', '/login', 'registration']} component={Auth} />
+            <Route exact path={['/', '/login', '/registration']} component={Auth} />
             <Route path='/@me' component={Home} />
         </Switch>
     </>

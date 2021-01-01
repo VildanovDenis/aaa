@@ -1,5 +1,5 @@
 export type TRegistrationFormProps = {
-    setIsRequestSent: (boolean) => void;
+    setIsRequestSent: (isSent: boolean) => void;
 }
 
 export type TRegistrationForm = {
