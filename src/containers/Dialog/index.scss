@@ -1,0 +1,53 @@
+.dialog-header {
+  grid-area: dialogHeader;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: $paddingSmall;
+  text-align: center;
+  color: $white;
+  background-color: $darkenPrimaryColor;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: $darkenDarkenPrimaryColor;
+  }
+}
+
+.dialog-header__name {
+  margin-bottom: $marginSmall;
+  font-size: $fontSizeDefault;
+  line-height: $fontSizeDefault;
+  color: $white;
+}
+
+.dialog-header__status {
+  position: relative;
+  font-size: $fontSizeSmall;
+  line-height: $fontSizeSmall;
+  color: $white;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $red;
+  }
+
+  &--online::before {
+    background-color: $lightenGreen;
+  }
+}
+
+.dialog-wrapper {
+  grid-area: dialog;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-left: $paddingSmall;
+}

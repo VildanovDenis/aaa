@@ -12,6 +12,9 @@
     "max-lines": ["error", 350],
     "no-trailing-spaces": ["error", { "ignoreComments": true }],
     "no-duplicate-imports": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+
     "indent": [
       "error",
       4,

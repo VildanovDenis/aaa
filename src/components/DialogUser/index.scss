@@ -2,71 +2,10 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: $paddingExtraSmall;
 }
 
-.dialog-user__avatar-wrapper {
-  position: relative;
-  flex-grow: 0;
-  width: 48px;
-  height: 48px;
+.dialog-user__avatar {
   margin-right: $marginMedium;
-  overflow: hidden;
-}
-
-.dialog-user__avatar-wrapper--online::before {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 10px;
-  height: 10px;
-  border: 2px solid $white;
-  background-color: $lightenGreen;
-  border-radius: 50%;
-}
-
-.dialog-user__avatar-image {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
-}
-
-.dialog-user__avatar-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: lighten(midnightblue, 30%);
-
-  & > span {
-    font-size: $fontSizeLarge;
-    line-height: $fontSizeLarge;
-    color: $white;
-  }
-}
-
-.dialog-user__avatar-text--0 {
-  background-color: lightpink;
-}
-
-.dialog-user__avatar-text--1 {
-  background-color: lightseagreen;
-}
-
-.dialog-user__avatar-text--2 {
-  background-color: darkslateblue;
-}
-
-.dialog-user__avatar-text--3 {
-  background-color: lightgreen;
-}
-
-.dialog-user__avatar-text--4 {
-  background-color: lightsalmon;
 }
 
 .dialog-user__info {
@@ -75,7 +14,7 @@
   max-width: calc(100% - #{$marginMedium} - 48px)
 }
 
-.dialog-user__info--name-and-date {
+.dialog-user__info-name-and-date {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -84,21 +23,56 @@
   margin-bottom: $marginSmall;
 }
 
-.dialog-user__info--name {
+.dialog-user__info-name {
   margin-bottom: 0;
   font-size: $fontSizeDefault;
   line-height: $lineHeightDefault;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.dialog-user__info--date {
+.dialog-user__info-date {
   font-size: $fontSizeSmall;
   line-height: $lineHeightSmall;
 }
 
-.dialog-user__info--last-message {
+.dialog-user__info-message-and-counter {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.dialog-user__info-last-message {
+  position: relative;
   display: block;
-  color: $lightenBlack;
+  width: calc(100% - #{$fontSizeDefault});
+  padding-right: 20px;
+  font-size: $fontSizeDefault;
+  line-height: $lineHeightDefault;
+  text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  color: $lightenBlack;
+}
+
+.dialog-user__info-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $fontSizeDefault;
+  height: $fontSizeDefault;
+  font-size: $fontSizeSmall;
+  line-height: $lineHeightSmall;
+  color: $white;
+  background-color: $darkenPrimaryColor;
+  border-radius: 50%;
+}
+
+.dialog-user__message-status {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
 }

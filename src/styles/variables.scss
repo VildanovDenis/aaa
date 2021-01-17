@@ -14,6 +14,7 @@ $primaryColor: skyblue;
 $lightenPrimaryColor: lighten($primaryColor, 10%);
 $lightenLightenPrimaryColor: lighten($primaryColor, 20%);
 $darkenPrimaryColor: darken($primaryColor, 20%);
+$darkenDarkenPrimaryColor: darken($primaryColor, 30%);
 
 $red: salmon;
 $lightenRed: lighten($red, 10%);

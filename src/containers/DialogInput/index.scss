@@ -1,0 +1,88 @@
+@keyframes shake {
+  10%, 90% {
+    transform: translateY(-1px);
+  }
+
+  20%, 80% {
+    transform: translateY(2px);
+  }
+
+  30%, 50%, 70% {
+    transform: translateY(-3px);
+  }
+
+  40%, 60% {
+    transform: translateY(3px);
+  }
+}
+
+.dialog-input-container {
+  position: relative;
+  grid-area: messageInput;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $paddingSmall;
+}
+
+.dialog-input-wrapper {
+  flex-grow: 1;
+  margin: 0 10px 0 0;
+}
+
+.dialog-input {
+}
+
+.dialog-input-label {
+}
+
+.dialog-input-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: $paddingExtraSmall;
+  margin-right: 10px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  z-index: 5;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+
+.dialog-input__smile-button {
+}
+
+.dialog-input__paperclip-button {
+}
+
+.dialog-input__micro-button {
+}
+
+.dialog-input__plane-button {
+  }
+
+.dialog-input-icon {
+  width: 25px;
+  height: 25px;
+  transition: .2s;
+}
+
+@import "./AttachPreview/index";

@@ -1,0 +1,78 @@
+
+.avatar-wrapper {
+  position: relative;
+  flex-grow: 0;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+}
+
+.avatar-wrapper--online::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  border: 2px solid $white;
+  background-color: $lightenGreen;
+  border-radius: 50%;
+}
+
+.avatar-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: $lightgray;
+  border-radius: 50%;
+}
+
+.avatar-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.avatar-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: lighten(midnightblue, 30%);
+
+  & > span {
+    font-size: $fontSizeLarge;
+    line-height: $fontSizeLarge;
+    color: $white;
+  }
+}
+
+.avatar-text--0 {
+  background-color: lightpink;
+  background-image: linear-gradient(135deg, lightpink 0%, lighten(lightpink, 10%) 96%);
+}
+
+.avatar-text--1 {
+  background-color: lightseagreen;
+  background-image: linear-gradient(135deg, lightseagreen 0%, lighten(lightseagreen, 25%) 96%);
+}
+
+.avatar-text--2 {
+  background-color: darkslateblue;
+  background-image: linear-gradient(135deg, darkslateblue 0%, lighten(darkslateblue, 25%) 96%);
+}
+
+.avatar-text--3 {
+  background-color: lightgreen;
+  background-image: linear-gradient(135deg, lightgreen 0%, lighten(lightgreen, 15%) 96%);
+}
+
+.avatar-text--4 {
+  background-color: lightsalmon;
+  background-image: linear-gradient(135deg, lightsalmon 0%, lighten(lightsalmon, 10%) 96%);
+}

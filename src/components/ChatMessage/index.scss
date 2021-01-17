@@ -1,5 +1,5 @@
 .chat-message-wrapper {
-  padding: $paddingSmall 0;
+  padding: $paddingSmall;
   transition: all 0.3s;
 
   &:hover {
@@ -21,13 +21,14 @@
 }
 
 .chat-message__avatar-wrapper {
-  margin-bottom: $marginSmall;
-}
-
-.chat-message__avatar {
+  flex-shrink: 0;
   width: 35px;
   height: 35px;
-  border-radius: 50%;
+  margin: 0 0 $marginSmall;
+  & span {
+    font-size: $fontSizeDefault;
+    line-height: $fontSizeDefault;
+  }
 }
 
 .chat-message__message {
@@ -81,26 +82,9 @@
 
 // other
 .chat-message__icon {
-  padding: $paddingExtraSmall;
   // line-height of the date + margin-bottom of bubble + padding of the bubble
   margin-bottom: calc(#{$marginSmall} + #{$lineHeightSmall} + #{$paddingSmall});
   margin-right: $marginMedium;
-  border-radius: 50%;
-  background-color: $lightenLightenBlack;
-  //background-color: $lightenLightenPrimaryColor;
-  //background-color: $primaryColor;
-
-  &--delivered {
-    background-color: $primaryColor;
-  }
-
-  &--seen {
-    background-color: transparent;
-  }
-
-  &--errored {
-    background-color: $lightenRed;
-  }
 }
 
 .chat-message__attachments {
@@ -124,6 +108,7 @@
     max-width: 100%;
     height: auto;
     cursor: pointer;
+    border-radius: $borderRadiusMedium;
   }
 
   &:last-child {

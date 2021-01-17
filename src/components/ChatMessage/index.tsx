@@ -1,9 +1,11 @@
 import React, { memo, useMemo } from 'react';
 import classNames from 'classnames';
 
-import { convertMessageDateToSting } from "./convertMessageDateToSting";
+import { convertMessageDateToSting } from './convertMessageDateToSting';
 
-import { messageStatuses, TChatMessageProps } from './types';
+import { TChatMessageProps } from './types';
+import { MessageStatus } from '../MessageStatus';
+import { UserAvatar } from '../UserAvatar';
 
 export const ChatMessage = memo((props: TChatMessageProps) => {
     const dateOfMessage = useMemo(
@@ -14,45 +16,38 @@ export const ChatMessage = memo((props: TChatMessageProps) => {
     return (
         <section className='chat-message-wrapper'>
             <div
-                className={
-                    classNames(
-                        'chat-message',
-                        {
-                            'chat-message--by-me': props.userId === props.senderId
-                        }
-                    )
-                }
+                className={classNames(
+                    'chat-message',
+                    {
+                        'chat-message--by-me': props.userId === props.senderId
+                    }
+                )}
             >
                 {/*User's avatar*/}
-                <div className='chat-message__avatar-wrapper'>
-                    <img
-                        src={props.imageSrc}
-                        className='chat-message__avatar'
-                        alt='user-avatar'
-                    />
-                </div>
+                <UserAvatar
+                    className='chat-message__avatar-wrapper'
+                    isOnline={false}
+                    name={props.senderName}
+                    imageSrc={props.senderImage}
+                />
 
                 {/*Message + date of message*/}
                 <div
-                    className={
-                        classNames(
-                            'chat-message__message',
-                            {
-                                'chat-message__message--by-me': props.userId === props.senderId
-                            }
-                        )
-                    }
+                    className={classNames(
+                        'chat-message__message',
+                        {
+                            'chat-message__message--by-me': props.userId === props.senderId
+                        }
+                    )}
                 >
                     {(props.isTyping || props.message) && (
                         <div
-                            className={
-                                classNames(
-                                    'chat-message__message-bubble',
-                                    {
-                                        'chat-message__message-bubble--by-me': props.userId === props.senderId
-                                    }
-                                )
-                            }
+                            className={classNames(
+                                'chat-message__message-bubble',
+                                {
+                                    'chat-message__message-bubble--by-me': props.userId === props.senderId
+                                }
+                            )}
                         >
                             {props.message && (
                                 <p className='chat-message__message-text'>
@@ -76,9 +71,12 @@ export const ChatMessage = memo((props: TChatMessageProps) => {
                             return (
                                 <div
                                     key={index}
-                                    className={
-                                        `chat-message__attach ${props?.attachment?.length === 1 ? 'chat-message__attach--one' : ''}`
-                                    }
+                                    className={classNames(
+                                        'chat-message__attach',
+                                        {
+                                            'chat-message__attach--one': props?.attachment?.length === 1,
+                                        }
+                                    )}
                                 >
                                     <img src={url} alt={attach.name} />
                                 </div>
@@ -101,19 +99,8 @@ export const ChatMessage = memo((props: TChatMessageProps) => {
                 </div>
 
                 {/* isRead */}
-                {props.userId === props.senderId && (
-                    <div
-                        className={
-                            classNames(
-                                'chat-message__icon',
-                                {
-                                    'chat-message__icon--delivered': props.status === messageStatuses.delivered,
-                                    'chat-message__icon--seen': props.status === messageStatuses.seen,
-                                    'chat-message__icon--errored': props.status === messageStatuses.errored,
-                                }
-                            )
-                        }
-                    />
+                {props.userId === props.senderId && props?.status && (
+                    <MessageStatus status={props.status} className={'chat-message__icon'} />
                 )}
             </div>
         </section>

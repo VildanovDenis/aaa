@@ -3,7 +3,7 @@ import { ru } from 'date-fns/locale'
 
 const hour = 1;
 const hoursInDay = hour * 24;
-const dateFormatDDMMYYYY = 'd.MM.yyyy';
+const dateFormatDDMMYYYY = 'dd.MM.yyyy';
 const dateFormatHHmm = 'HH:mm';
 
 /**
@@ -15,7 +15,6 @@ export const convertMessageDateToSting = (date: number | Date | undefined): null
     }
 
     const diffInHours = differenceInHours(new Date(), date);
-    console.log(diffInHours);
 
     if (diffInHours < hour) {
         return formatDistanceToNow(date, { locale: ru, addSuffix: true });

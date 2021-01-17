@@ -1,9 +1,20 @@
+import { TMessageStatuses } from '../../types/messageStatuses';
+
 export type TDialogUserProps = {
-    id: string;
+    contactId: string;
+    ownerId: string;
     name: string;
-    avatar?: string;
-    date?: number | Date;
-    lastMessage?: string;
+    surname?: string;
+    contactImage?: string;
+    message: {
+        message: string;
+        status: TMessageStatuses;
+        date: number | Date;
+        user: {
+            id: string;
+            name: string;
+        };
+    } | null;
     unreadMessagesCount?: number;
     isOnline?: boolean;
 }

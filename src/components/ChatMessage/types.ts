@@ -1,8 +1,4 @@
-export enum messageStatuses {
-    delivered = 'delivered',
-    seen = 'seen',
-    errored = 'errored',
-}
+import { TMessageStatuses } from '../../types/messageStatuses';
 
 export type Attach = {
     type: string;
@@ -11,12 +7,13 @@ export type Attach = {
 }
 
 export type TChatMessageProps = {
-    imageSrc: string;
-    senderId: string;
     userId: string;
+    senderName: string;
+    senderId: string;
+    senderImage?: string;
     date?: Date | number;
     message?: string;
     isTyping?: boolean;
-    status?: messageStatuses;
+    status?: TMessageStatuses;
     attachment?: Attach[];
 }

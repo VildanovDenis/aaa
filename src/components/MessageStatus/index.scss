@@ -1,0 +1,17 @@
+.message-status {
+  padding: $paddingExtraSmall;
+  border-radius: 50%;
+  background-color: $lightenLightenBlack;
+
+  &--delivered {
+    background-color: $primaryColor;
+  }
+
+  &--seen {
+    background-color: transparent;
+  }
+
+  &--errored {
+    background-color: $lightenRed;
+  }
+}
