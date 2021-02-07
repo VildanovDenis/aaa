@@ -162,6 +162,9 @@ a {
   display: none;
 }
 
+// lib
+@import "./node_modules/emoji-mart/css/emoji-mart";
+
 // components styles
 @import "./src/components/BurgerMenu/index";
 @import "./src/components/Button/index";

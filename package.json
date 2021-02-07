@@ -31,6 +31,7 @@
     "date-fns": "^2.16.1",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
+    "emoji-mart": "^3.0.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-jest": "^24.1.0",
@@ -162,6 +163,7 @@
     ]
   },
   "devDependencies": {
+    "@types/emoji-mart": "^3.0.4",
     "@types/react-redux": "^7.1.15",
     "@types/react-router-dom": "^5.1.6",
     "eslint": "^7.2.0",

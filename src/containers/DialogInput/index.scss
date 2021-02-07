@@ -48,6 +48,7 @@
   border-radius: 50%;
   background: transparent;
   z-index: 5;
+  cursor: pointer;
 
   &:last-child {
     margin-right: 0;
@@ -77,7 +78,8 @@
 }
 
 .dialog-input__plane-button {
-  }
+  margin-right: 0;
+}
 
 .dialog-input-icon {
   width: 25px;
@@ -86,3 +88,4 @@
 }
 
 @import "./AttachPreview/index";
+@import "./EmojiPicker/index";
